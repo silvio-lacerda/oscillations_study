@@ -27,5 +27,8 @@ ydata = objective(xdata, f, m, b)
 rng = np.random.default_rng()
 pyplot.plot(xdata, ydata, 'r-', label='data')
 
+pyplot.xlabel("Frequência")
+pyplot.ylabel("Amplitude")
+
 pyplot.scatter(x, y)
 pyplot.show()

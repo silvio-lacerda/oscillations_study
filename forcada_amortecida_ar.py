@@ -28,5 +28,8 @@ y_noise = 0.2 * rng.normal(size=xdata.size)
 ydata = y__ + y_noise
 pyplot.plot(xdata, ydata, 'r-', label='data')
 
+pyplot.xlabel("Frequência")
+pyplot.ylabel("Amplitude")
+
 pyplot.scatter(x, y)
 pyplot.show()
