@@ -7,12 +7,6 @@ from numpy import exp
 def objective(t, amp, gamma, w):
     return  amp * exp(gamma*t*(-1)) * cos(t*w) 
 
-def error(params):
-    amp, gamma, w = params
-    model_func = objective(x, amp, gamma, w)
-    z = y - model_func
-    return z
-
 file = pd.read_csv('data/posicao_agua_6.csv', usecols= ['tempo','espaco'], sep=";")
 
 x = list(float(a) for a in list(file["tempo"]))
@@ -30,7 +24,6 @@ gamma = np.log(abs(y[metade]/(amp*cos(omega*x[metade]))))/x[metade]
 ydata = objective(xdata, amp, gamma, omega) 
 
 y = y - np.mean(y)
-# ydata = objective(xdata, *popt)
 pyplot.plot(xdata, ydata, 'r-', label='data')
 
 pyplot.xlabel("Tempo (s)")
