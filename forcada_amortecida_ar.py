@@ -12,7 +12,7 @@ def objective(omega, f, m, b):
     d = (4*(gamma**2)*(omega**2))
     return f/(m*sqrt(a+d))
 
-file = pd.read_csv('frequencia_ar.csv', usecols= ['frequencia','amplitude'], sep=";")
+file = pd.read_csv('data/frequencia_ar.csv', usecols= ['frequencia','amplitude'], sep=";")
 x = list(float(a.replace(",", ".")) for a in list(file["frequencia"]))
 y = list(float(b.replace(",", ".")) for b in list(file["amplitude"]))
 
@@ -28,8 +28,8 @@ y_noise = 0.2 * rng.normal(size=xdata.size)
 ydata = y__ + y_noise
 pyplot.plot(xdata, ydata, 'r-', label='data')
 
-pyplot.xlabel("Frequência")
-pyplot.ylabel("Amplitude")
+pyplot.xlabel("Frequência (Hz)")
+pyplot.ylabel("Amplitude (cm)")
 
 pyplot.scatter(x, y)
 pyplot.show()
